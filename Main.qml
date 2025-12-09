@@ -15,68 +15,121 @@ ApplicationWindow {
     Material.theme: Material.Dark
     Material.accent: Material.Blue
     
+    // Set smaller font size globally
+    font.pixelSize: 12
+    
     color: "#1e1e1e"
     
     // Menu Bar
     menuBar: MenuBar {
         Material.background: "#2d2d30"
         Material.foreground: "#ffffff"
+        height: 30
+        font.pixelSize: 11
+        
+        delegate: MenuBarItem {
+            height: 30
+            font.pixelSize: 11
+        }
         
         Menu {
             title: "&File"
+            font.pixelSize: 11
+            
+            delegate: MenuItem {
+                height: 28
+                font.pixelSize: 11
+            }
+            
             MenuItem { 
                 text: "New"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("New clicked")
             }
             MenuItem { 
                 text: "Open"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Open clicked")
             }
-            MenuSeparator {}
+            MenuSeparator { height: 1 }
             MenuItem { 
                 text: "Save"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Save clicked")
             }
             MenuItem { 
                 text: "Save As..."
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Save As clicked")
             }
-            MenuSeparator {}
+            MenuSeparator { height: 1 }
             MenuItem { 
                 text: "Exit"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: Qt.quit()
             }
         }
         
         Menu {
             title: "&Operation"
+            font.pixelSize: 11
+            
+            delegate: MenuItem {
+                height: 28
+                font.pixelSize: 11
+            }
+            
             MenuItem { 
                 text: "Cut"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Cut clicked")
             }
             MenuItem { 
                 text: "Copy"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Copy clicked")
             }
             MenuItem { 
                 text: "Paste"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Paste clicked")
             }
-            MenuSeparator {}
+            MenuSeparator { height: 1 }
             MenuItem { 
                 text: "Preferences"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Preferences clicked")
             }
         }
         
         Menu {
             title: "&Help"
+            font.pixelSize: 11
+            
+            delegate: MenuItem {
+                height: 28
+                font.pixelSize: 11
+            }
+            
             MenuItem { 
                 text: "About"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("About clicked")
             }
             MenuItem { 
                 text: "Documentation"
+                height: 28
+                font.pixelSize: 11
                 onTriggered: console.log("Documentation clicked")
             }
         }
@@ -101,6 +154,7 @@ ApplicationWindow {
                     text: "New"
                     icon.source: "qrc:/icons/new.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("New clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "Create New"
@@ -110,6 +164,7 @@ ApplicationWindow {
                     text: "Open"
                     icon.source: "qrc:/icons/open.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("Open clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "Open File"
@@ -121,6 +176,7 @@ ApplicationWindow {
                     text: "Cut"
                     icon.source: "qrc:/icons/cut.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("Cut clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "Cut"
@@ -130,6 +186,7 @@ ApplicationWindow {
                     text: "Copy"
                     icon.source: "qrc:/icons/copy.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("Copy clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "Copy"
@@ -139,6 +196,7 @@ ApplicationWindow {
                     text: "Paste"
                     icon.source: "qrc:/icons/paste.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("Paste clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "Paste"
@@ -150,6 +208,7 @@ ApplicationWindow {
                     text: "About"
                     icon.source: "qrc:/icons/about.png"
                     flat: true
+                    font.pixelSize: 11
                     onClicked: console.log("About clicked")
                     ToolTip.visible: hovered
                     ToolTip.text: "About"
@@ -189,10 +248,12 @@ ApplicationWindow {
                         TabButton {
                             text: "Tree View"
                             width: implicitWidth
+                            font.pixelSize: 11
                         }
                         TabButton {
                             text: "List View"
                             width: implicitWidth
+                            font.pixelSize: 11
                         }
                     }
                     
@@ -224,13 +285,14 @@ ApplicationWindow {
                                     
                                     delegate: ItemDelegate {
                                         width: treeListView.width
-                                        height: 30
+                                        height: 26
                                         
                                         contentItem: Text {
                                             text: model.name
                                             color: "#cccccc"
                                             verticalAlignment: Text.AlignVCenter
                                             font.family: "monospace"
+                                            font.pixelSize: 11
                                         }
                                         
                                         background: Rectangle {
@@ -268,18 +330,19 @@ ApplicationWindow {
                                     
                                     delegate: ItemDelegate {
                                         width: listView.width
-                                        height: 60
+                                        height: 50
                                         
                                         contentItem: ColumnLayout {
                                             Text {
                                                 text: model.name
                                                 color: "#cccccc"
                                                 font.bold: true
+                                                font.pixelSize: 11
                                             }
                                             Text {
                                                 text: model.description
                                                 color: "#999999"
-                                                font.pixelSize: 12
+                                                font.pixelSize: 10
                                             }
                                         }
                                         
@@ -310,6 +373,8 @@ ApplicationWindow {
                     backgroundColor: "#1e1e1e"
                     titleColor: "#cccccc"
                     legend.labelColor: "#cccccc"
+                    titleFont.pixelSize: 14
+                    legend.font.pixelSize: 10
                     
                     LineSeries {
                         name: "Series 1"
@@ -354,6 +419,7 @@ ApplicationWindow {
                         Layout.preferredWidth: 40
                         Layout.preferredHeight: 40
                         text: "T1"
+                        font.pixelSize: 10
                         checkable: true
                         checked: false
                         Material.background: checked ? "#0e639c" : "#3e3e42"
@@ -368,6 +434,7 @@ ApplicationWindow {
                         Layout.preferredWidth: 40
                         Layout.preferredHeight: 40
                         text: "T2"
+                        font.pixelSize: 10
                         checkable: true
                         checked: false
                         Material.background: checked ? "#0e639c" : "#3e3e42"
@@ -382,6 +449,7 @@ ApplicationWindow {
                         Layout.preferredWidth: 40
                         Layout.preferredHeight: 40
                         text: "T3"
+                        font.pixelSize: 10
                         checkable: true
                         checked: false
                         Material.background: checked ? "#0e639c" : "#3e3e42"
@@ -414,6 +482,7 @@ ApplicationWindow {
                         Label {
                             text: "Panel 1"
                             font.bold: true
+                            font.pixelSize: 12
                             Layout.fillWidth: true
                         }
                         
@@ -421,6 +490,7 @@ ApplicationWindow {
                             text: "Button 1A"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 1A clicked")
                         }
                         
@@ -428,6 +498,7 @@ ApplicationWindow {
                             text: "Button 1B"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 1B clicked")
                         }
                         
@@ -435,6 +506,7 @@ ApplicationWindow {
                             text: "Button 1C"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 1C clicked")
                         }
                         
@@ -463,6 +535,7 @@ ApplicationWindow {
                         Label {
                             text: "Panel 2"
                             font.bold: true
+                            font.pixelSize: 12
                             Layout.fillWidth: true
                         }
                         
@@ -470,6 +543,7 @@ ApplicationWindow {
                             text: "Button 2A"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 2A clicked")
                         }
                         
@@ -477,6 +551,7 @@ ApplicationWindow {
                             text: "Button 2B"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 2B clicked")
                         }
                         
@@ -484,6 +559,7 @@ ApplicationWindow {
                             text: "Button 2C"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 2C clicked")
                         }
                         
@@ -491,6 +567,7 @@ ApplicationWindow {
                             text: "Button 2D"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 2D clicked")
                         }
                         
@@ -519,6 +596,7 @@ ApplicationWindow {
                         Label {
                             text: "Panel 3"
                             font.bold: true
+                            font.pixelSize: 12
                             Layout.fillWidth: true
                         }
                         
@@ -526,6 +604,7 @@ ApplicationWindow {
                             text: "Button 3A"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 3A clicked")
                         }
                         
@@ -533,6 +612,7 @@ ApplicationWindow {
                             text: "Button 3B"
                             Layout.fillWidth: true
                             flat: true
+                            font.pixelSize: 11
                             onClicked: console.log("Button 3B clicked")
                         }
                         
