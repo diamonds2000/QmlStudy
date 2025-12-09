@@ -1,0 +1,86 @@
+# CMake build directory
+build/
+build-*/
+cmake-build-*/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Qt generated files
+*.autogen/
+*_autogen.dir/
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qm
+
+# C++ compiled files
+*.o
+*.obj
+*.so
+*.so.*
+*.a
+*.lib
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# IDE specific files
+.vscode/
+.idea/
+*.pro.user
+*.pro.user.*
+*.creator
+*.creator.*
+*.files
+*.includes
+*.config
+*.cflags
+*.cxxflags
+
+# Qt Creator
+*.qmlproject.user
+*.qmlproject.user.*
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Debug and release folders
+debug/
+release/
+Debug/
+Release/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Core dumps
+core
+core.*
+*.core
+
+# Application binary (the executable)
+QMLStudy
