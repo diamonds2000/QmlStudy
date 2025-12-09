@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 project(QMLStudy VERSION 1.0.0 LANGUAGES CXX)
 
+# Set Debug build type as default
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
