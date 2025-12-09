@@ -6,12 +6,15 @@ import QtQuick.Layouts
 Rectangle {
     id: leftDock
     color: "#252526"
-    border.color: "#3e3e42"
-    border.width: 1
+    border.color: "grey"
+    border.width: 5
     
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 0
+        anchors.topMargin: 2
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.rightMargin: 2
         spacing: 0
         
         // Tab bar for switching between views
@@ -20,16 +23,25 @@ Rectangle {
             Layout.fillWidth: true
             Material.background: "#2d2d30"
             Material.foreground: "#ffffff"
+            implicitHeight: 34
             
             TabButton {
-                text: "Tree View"
-                width: implicitWidth
+                text: "Tree"
+                width: 100
+                height: tabBar.implicitHeight
+                padding: 2
                 font.pixelSize: 11
+                Material.theme: Material.Dark
+                font.capitalization: Font.MixedCase
             }
             TabButton {
-                text: "List View"
-                width: implicitWidth
+                text: "List"
+                width: 100
+                height: tabBar.implicitHeight
+                padding: 2
                 font.pixelSize: 11
+                Material.theme: Material.Dark
+                font.capitalization: Font.MixedCase
             }
         }
         

@@ -9,6 +9,28 @@ Rectangle {
     border.color: "#3e3e42"
     border.width: 1
     
+    // Array to hold all toggle buttons for mutual exclusion
+    property var toggleButtons: []
+    
+    function registerToggleButton(button) {
+        toggleButtons.push(button)
+    }
+    
+    function unregisterToggleButton(button) {
+        var index = toggleButtons.indexOf(button)
+        if (index !== -1) {
+            toggleButtons.splice(index, 1)
+        }
+    }
+    
+    function enforceMutualExclusion(activator) {
+        for (var i = 0; i < toggleButtons.length; i++) {
+            if (toggleButtons[i] !== activator) {
+                toggleButtons[i].checked = false
+            }
+        }
+    }
+    
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 5
@@ -25,6 +47,16 @@ Rectangle {
             checked: false
             Material.background: checked ? "#0e639c" : "#3e3e42"
             
+            onCheckedChanged: {
+                if (checked) {
+                    rightToolBar.enforceMutualExclusion(this)
+                }
+            }
+            
+            Component.onCompleted: {
+                rightToolBar.registerToggleButton(this)
+            }
+            
             ToolTip.visible: hovered
             ToolTip.text: "Toggle Panel 1"
         }
@@ -40,6 +72,16 @@ Rectangle {
             checked: false
             Material.background: checked ? "#0e639c" : "#3e3e42"
             
+            onCheckedChanged: {
+                if (checked) {
+                    rightToolBar.enforceMutualExclusion(this)
+                }
+            }
+            
+            Component.onCompleted: {
+                rightToolBar.registerToggleButton(this)
+            }
+            
             ToolTip.visible: hovered
             ToolTip.text: "Toggle Panel 2"
         }
@@ -54,6 +96,16 @@ Rectangle {
             checkable: true
             checked: false
             Material.background: checked ? "#0e639c" : "#3e3e42"
+            
+            onCheckedChanged: {
+                if (checked) {
+                    rightToolBar.enforceMutualExclusion(this)
+                }
+            }
+            
+            Component.onCompleted: {
+                rightToolBar.registerToggleButton(this)
+            }
             
             ToolTip.visible: hovered
             ToolTip.text: "Toggle Panel 3"

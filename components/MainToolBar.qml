@@ -13,8 +13,7 @@ ToolBar {
         spacing: 5
         
         ToolButton {
-            text: "New"
-            icon.source: "qrc:/icons/new.png"
+            icon.source: "qrc:/icon/cut32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("New clicked")
@@ -23,8 +22,7 @@ ToolBar {
         }
         
         ToolButton {
-            text: "Open"
-            icon.source: "qrc:/icons/open.png"
+            icon.source: "qrc:/icon/copy32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("Open clicked")
@@ -35,8 +33,7 @@ ToolBar {
         ToolSeparator {}
         
         ToolButton {
-            text: "Cut"
-            icon.source: "qrc:/icons/cut.png"
+            icon.source: "qrc:/icon/cut32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("Cut clicked")
@@ -45,8 +42,7 @@ ToolBar {
         }
         
         ToolButton {
-            text: "Copy"
-            icon.source: "qrc:/icons/copy.png"
+            icon.source: "qrc:/icon/copy32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("Copy clicked")
@@ -55,8 +51,7 @@ ToolBar {
         }
         
         ToolButton {
-            text: "Paste"
-            icon.source: "qrc:/icons/paste.png"
+            icon.source: "qrc:/icon/paste32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("Paste clicked")
@@ -67,8 +62,7 @@ ToolBar {
         ToolSeparator {}
         
         ToolButton {
-            text: "About"
-            icon.source: "qrc:/icons/about.png"
+            icon.source: "qrc:/icon/about32.png"
             flat: true
             font.pixelSize: 11
             onClicked: console.log("About clicked")

@@ -6,5 +6,9 @@
         <file>components/LeftDockPanel.qml</file>
         <file>components/ChartViewPanel.qml</file>
         <file>components/RightToolBar.qml</file>
+        <file>icon/about32.png</file>
+        <file>icon/copy32.png</file>
+        <file>icon/cut32.png</file>
+        <file>icon/paste32.png</file>
     </qresource>
 </RCC>
