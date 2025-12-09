@@ -1,0 +1,134 @@
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+
+Rectangle {
+    id: leftDock
+    color: "#252526"
+    border.color: "#3e3e42"
+    border.width: 1
+    
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 0
+        spacing: 0
+        
+        // Tab bar for switching between views
+        TabBar {
+            id: tabBar
+            Layout.fillWidth: true
+            Material.background: "#2d2d30"
+            Material.foreground: "#ffffff"
+            
+            TabButton {
+                text: "Tree View"
+                width: implicitWidth
+                font.pixelSize: 11
+            }
+            TabButton {
+                text: "List View"
+                width: implicitWidth
+                font.pixelSize: 11
+            }
+        }
+        
+        // Stack layout for the content
+        StackLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            currentIndex: tabBar.currentIndex
+            
+            // Tree View Page
+            Rectangle {
+                color: "#1e1e1e"
+                
+                ScrollView {
+                    anchors.fill: parent
+                    anchors.margins: 5
+                    
+                    ListView {
+                        id: treeListView
+                        model: ListModel {
+                            ListElement { name: "Root Item"; level: 0; expanded: true }
+                            ListElement { name: "  ├─ Child 1"; level: 1; expanded: false }
+                            ListElement { name: "    ├─ Grandchild 1.1"; level: 2; expanded: false }
+                            ListElement { name: "    └─ Grandchild 1.2"; level: 2; expanded: false }
+                            ListElement { name: "  ├─ Child 2"; level: 1; expanded: false }
+                            ListElement { name: "    └─ Grandchild 2.1"; level: 2; expanded: false }
+                            ListElement { name: "  └─ Child 3"; level: 1; expanded: false }
+                        }
+                        
+                        delegate: ItemDelegate {
+                            width: treeListView.width
+                            height: 26
+                            
+                            contentItem: Text {
+                                text: model.name
+                                color: "#cccccc"
+                                verticalAlignment: Text.AlignVCenter
+                                font.family: "monospace"
+                                font.pixelSize: 11
+                            }
+                            
+                            background: Rectangle {
+                                color: parent.hovered ? "#2a2d2e" : "transparent"
+                            }
+                            
+                            onClicked: {
+                                console.log("Tree item clicked:", model.name)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // List View Page
+            Rectangle {
+                color: "#1e1e1e"
+                
+                ScrollView {
+                    anchors.fill: parent
+                    anchors.margins: 5
+                    
+                    ListView {
+                        id: listView
+                        model: ListModel {
+                            ListElement { name: "Item 1"; description: "Description for item 1" }
+                            ListElement { name: "Item 2"; description: "Description for item 2" }
+                            ListElement { name: "Item 3"; description: "Description for item 3" }
+                            ListElement { name: "Item 4"; description: "Description for item 4" }
+                            ListElement { name: "Item 5"; description: "Description for item 5" }
+                            ListElement { name: "Item 6"; description: "Description for item 6" }
+                            ListElement { name: "Item 7"; description: "Description for item 7" }
+                            ListElement { name: "Item 8"; description: "Description for item 8" }
+                        }
+                        
+                        delegate: ItemDelegate {
+                            width: listView.width
+                            height: 50
+                            
+                            contentItem: ColumnLayout {
+                                Text {
+                                    text: model.name
+                                    color: "#cccccc"
+                                    font.bold: true
+                                    font.pixelSize: 11
+                                }
+                                Text {
+                                    text: model.description
+                                    color: "#999999"
+                                    font.pixelSize: 10
+                                }
+                            }
+                            
+                            background: Rectangle {
+                                color: parent.hovered ? "#2a2d2e" : "transparent"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
