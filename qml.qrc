@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>Main.qml</file>
+        <file>components/Main.qml</file>
         <file>components/MainMenuBar.qml</file>
         <file>components/MainToolBar.qml</file>
         <file>components/LeftDockPanel.qml</file>

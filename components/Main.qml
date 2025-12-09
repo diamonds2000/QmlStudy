@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
-import "components"
+import com.qmlstudy 1.0
 
 ApplicationWindow {
     id: mainWindow
@@ -42,21 +42,21 @@ ApplicationWindow {
             Layout.fillHeight: true
             spacing: 0
             
-            // Left Docked Panel - Using component
-            LeftDockPanel {
+            // Left Docked Panel - Using C++ class that loads QML
+            DockWindow {
                 id: leftDockPanel
                 Layout.preferredWidth: 250
                 Layout.fillHeight: true
             }
             
-            // Center Chart View - Using component
-            ChartViewPanel {
+            // Center Chart View - Using C++ class that loads QML
+            ChartPanel {
                 id: chartViewPanel
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
             
-            // Right Vertical Toolbar - Using component
+            // Right Vertical Toolbar - Using C++ class that loads QML
             RightToolBar {
                 id: rightToolBar
                 Layout.preferredWidth: 50

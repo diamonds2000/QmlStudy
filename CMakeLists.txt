@@ -13,7 +13,13 @@ find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Widgets Qml Quick Charts Quick
 
 # Set the application sources
 set(PROJECT_SOURCES
-    main.cpp
+    src/main.cpp
+    src/dockwindow.h
+    src/dockwindow.cpp
+    src/chartpanel.h
+    src/chartpanel.cpp
+    src/righttoolbar.h
+    src/righttoolbar.cpp
     qml.qrc
 )
 
