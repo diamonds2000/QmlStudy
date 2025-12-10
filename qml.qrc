@@ -12,5 +12,7 @@
         <file>icon/copy32.png</file>
         <file>icon/cut32.png</file>
         <file>icon/paste32.png</file>
+        <file>icon/caret-right16.png</file>
+        <file>icon/caret-down16.png</file>
     </qresource>
 </RCC>

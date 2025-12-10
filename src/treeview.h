@@ -4,6 +4,7 @@
 #include <QQuickItem>
 #include <QQmlComponent>
 #include <QQmlEngine>
+#include "treemodel.h"
 
 class TreeView : public QQuickItem
 {
@@ -28,6 +29,8 @@ private:
 
     QQmlComponent* m_component;
     QQuickItem* m_contentItem;
+
+    TreeModel m_treeModel;
 };
 
 #endif // TREEVIEW_H

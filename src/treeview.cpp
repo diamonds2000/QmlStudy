@@ -78,46 +78,14 @@ void TreeView::setTreeNodes()
         return;
     }
 
-    // Create tree nodes as QVariantList with QVariantMap items
-    QVariantList nodes;
+    m_treeModel.addNode("Root", 0, true);
+    m_treeModel.addNode("Child 1", 1, false);
+    m_treeModel.addNode("Child 2", 1, true);
+    m_treeModel.addNode("Grandchild 1", 2, false);
+    m_treeModel.addNode("Grandchild 2", 2, false);
 
-    QVariantMap node1 = {
-        {"name", "Root Item"},
-        {"level", 0},
-        {"expanded", true}
-    };
-    nodes.append(node1);
-    
-    QVariantMap node2 = {
-        {"name", "  ├─ Child 1"},
-        {"level", 1},
-        {"expanded", false}
-    };
-    nodes.append(node2);
-
-    QVariantMap node3 = {
-        {"name", "    ├─ Grandchild 1.1"},
-        {"level", 2},
-        {"expanded", false}
-    };
-    nodes.append(node3);
-
-    QVariantMap node4 = {
-        {"name", "    └─ Grandchild 1.2"},
-        {"level", 2},
-        {"expanded", false}
-    };
-    nodes.append(node4);
-
-    QVariantMap node5 = {
-        {"name", "  └─ Child 2"},
-        {"level", 1},
-        {"expanded", false}
-    };
-    nodes.append(node5);
-
-    m_contentItem->setProperty("model", nodes);
-    qDebug() << "TreeView: Set" << nodes.size() << "nodes to model";
+    m_contentItem->setProperty("model", QVariant::fromValue(&m_treeModel));
+    //qDebug() << "TreeView: Set" << nodes.size() << "nodes to model";
 }
 
 

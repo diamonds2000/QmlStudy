@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
     src/righttoolbar.cpp
     src/treeview.h
     src/treeview.cpp
+    src/treemodel.h
+    src/treemodel.cpp
     qml.qrc
 )
 

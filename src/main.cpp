@@ -7,6 +7,7 @@
 #include "chartpanel.h"
 #include "righttoolbar.h"
 #include "treeview.h"
+#include "treemodel.h"
 
 int main(int argc, char *argv[])
 {
