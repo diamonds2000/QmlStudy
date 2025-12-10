@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
+import com.qmlstudy 1.0
 
 Rectangle {
     id: leftDock
@@ -58,39 +59,10 @@ Rectangle {
                 ScrollView {
                     anchors.fill: parent
                     anchors.margins: 5
-                    
-                    ListView {
-                        id: treeListView
-                        model: ListModel {
-                            ListElement { name: "Root Item"; level: 0; expanded: true }
-                            ListElement { name: "  ├─ Child 1"; level: 1; expanded: false }
-                            ListElement { name: "    ├─ Grandchild 1.1"; level: 2; expanded: false }
-                            ListElement { name: "    └─ Grandchild 1.2"; level: 2; expanded: false }
-                            ListElement { name: "  ├─ Child 2"; level: 1; expanded: false }
-                            ListElement { name: "    └─ Grandchild 2.1"; level: 2; expanded: false }
-                            ListElement { name: "  └─ Child 3"; level: 1; expanded: false }
-                        }
-                        
-                        delegate: ItemDelegate {
-                            width: treeListView.width
-                            height: 26
-                            
-                            contentItem: Text {
-                                text: model.name
-                                color: "#cccccc"
-                                verticalAlignment: Text.AlignVCenter
-                                font.family: "monospace"
-                                font.pixelSize: 11
-                            }
-                            
-                            background: Rectangle {
-                                color: parent.hovered ? "#2a2d2e" : "transparent"
-                            }
-                            
-                            onClicked: {
-                                console.log("Tree item clicked:", model.name)
-                            }
-                        }
+
+                    TreeView {
+                        id: treeView
+                        anchors.fill: parent
                     }
                 }
             }

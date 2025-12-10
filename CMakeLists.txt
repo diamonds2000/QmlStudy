@@ -26,6 +26,8 @@ set(PROJECT_SOURCES
     src/chartpanel.cpp
     src/righttoolbar.h
     src/righttoolbar.cpp
+    src/treeview.h
+    src/treeview.cpp
     qml.qrc
 )
 

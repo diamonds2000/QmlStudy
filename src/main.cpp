@@ -6,6 +6,7 @@
 #include "dockwindow.h"
 #include "chartpanel.h"
 #include "righttoolbar.h"
+#include "treeview.h"
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
     
     // Register C++ types with QML
     qmlRegisterType<DockWindow>("com.qmlstudy", 1, 0, "DockWindow");
+    qmlRegisterType<TreeView>("com.qmlstudy", 1, 0, "TreeView");
     qmlRegisterType<ChartPanel>("com.qmlstudy", 1, 0, "ChartPanel");
     qmlRegisterType<RightToolBar>("com.qmlstudy", 1, 0, "RightToolBar");
     
