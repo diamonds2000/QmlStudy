@@ -2,13 +2,35 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QDebug>
+#include <QPalette>
 #include "dockwindow.h"
 #include "chartpanel.h"
 #include "righttoolbar.h"
 
 int main(int argc, char *argv[])
 {
+    // Set dark theme hint before creating QApplication (for Wayland/X11 window decorations)
+    //qputenv("QT_QUICK_CONTROLS_MATERIAL_THEME", "Dark");
+    //qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
+    
     QApplication app(argc, argv);
+    
+    // Set application-wide dark palette for native widgets and window frames
+    QPalette darkPalette;
+    darkPalette.setColor(QPalette::Window, QColor(30, 30, 30));
+    darkPalette.setColor(QPalette::WindowText, Qt::white);
+    // darkPalette.setColor(QPalette::Base, QColor(25, 25, 25));
+    // darkPalette.setColor(QPalette::AlternateBase, QColor(30, 30, 30));
+    // darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
+    // darkPalette.setColor(QPalette::ToolTipText, Qt::white);
+    // darkPalette.setColor(QPalette::Text, Qt::white);
+    // darkPalette.setColor(QPalette::Button, QColor(30, 30, 30));
+    //darkPalette.setColor(QPalette::ButtonText, Qt::white);
+    // darkPalette.setColor(QPalette::BrightText, Qt::red);
+    // darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
+    // darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+    // darkPalette.setColor(QPalette::HighlightedText, Qt::black);
+    app.setPalette(darkPalette);
     
     // Set the Qt Quick Controls style
     QQuickStyle::setStyle("Material");
