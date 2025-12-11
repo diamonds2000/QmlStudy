@@ -44,45 +44,38 @@ ListView {
             return true; // All ancestors are expanded
         }
         
-        contentItem: Loader {
-            sourceComponent: isVisible ? row : null
+        contentItem: Row {
+            visible: isVisible
+            spacing: 4
             anchors.verticalCenter: parent.verticalCenter
-        }
-        
-        Component {
-            id: row
-            Row {
-                spacing: 4
+            
+            Item {
+                // Spacer to create indentation based on level
+                width: itemLevel * 16
+                height: parent.height
+            }
+            
+            Image {
+                source: itemExpanded ? "qrc:/icon/caret-down16.png" : "qrc:/icon/caret-right16.png"
+                width: 16
+                height: 16
                 anchors.verticalCenter: parent.verticalCenter
-                
-                Item {
-                    // Spacer to create indentation based on level
-                    width: itemLevel * 16
-                    height: parent.height
-                }
-                
-                Image {
-                    source: itemExpanded ? "qrc:/icon/caret-down16.png" : "qrc:/icon/caret-right16.png"
-                    width: 16
-                    height: 16
-                    anchors.verticalCenter: parent.verticalCenter
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            treeListView.model.toggleExpanded(index)
-                        }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        treeListView.model.toggleExpanded(index)
                     }
                 }
+            }
 
-                Text {
-                    text: itemName
-                    color: "#cccccc"
-                    verticalAlignment: Text.AlignVCenter
-                    font.family: "monospace"
-                    font.pixelSize: 11
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+            Text {
+                text: itemName
+                color: "#cccccc"
+                verticalAlignment: Text.AlignVCenter
+                font.family: "monospace"
+                font.pixelSize: 11
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
         
