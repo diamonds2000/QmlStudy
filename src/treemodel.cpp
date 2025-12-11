@@ -24,7 +24,6 @@ QVariant TreeModel::data(const QModelIndex& index, int role) const
     default: return {};
     }
 }
-
 bool TreeModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (!index.isValid())
@@ -41,6 +40,20 @@ bool TreeModel::setData(const QModelIndex& index, const QVariant& value, int rol
 
     emit dataChanged(index, index, { role });
     return true;
+}
+
+QVariantMap TreeModel::get(int row) const
+{
+    if (row < 0 || row >= m_nodes.size())
+        return {};
+
+    const Node& n = m_nodes[row];
+
+    QVariantMap map;
+    map["name"] = n.name;
+    map["level"] = n.level;
+    map["expanded"] = n.expanded;
+    return map;
 }
 
 QHash<int, QByteArray> TreeModel::roleNames() const
@@ -78,4 +91,7 @@ void TreeModel::toggleExpanded(int row)
 
     bool newVal = !m_nodes[row].expanded;
     setData(idx, newVal, ExpandedRole); // 自动触发 dataChanged
+    
+    // Emit layoutChanged to force QML to re-evaluate all bindings
+    emit layoutChanged();
 }

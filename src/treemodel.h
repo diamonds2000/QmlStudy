@@ -27,6 +27,8 @@ public:
     Q_INVOKABLE void removeNode(int row);
     Q_INVOKABLE void toggleExpanded(int row);
 
+    Q_INVOKABLE QVariantMap get(int row) const;
+
 private:
     struct Node {
         QString name;

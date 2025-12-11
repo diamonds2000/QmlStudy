@@ -79,10 +79,12 @@ void TreeView::setTreeNodes()
     }
 
     m_treeModel.addNode("Root", 0, true);
-    m_treeModel.addNode("Child 1", 1, false);
-    m_treeModel.addNode("Child 2", 1, true);
-    m_treeModel.addNode("Grandchild 1", 2, false);
-    m_treeModel.addNode("Grandchild 2", 2, false);
+    m_treeModel.addNode("Child 1", 1, true);
+    m_treeModel.addNode("Grandchild 1_1", 2, false);
+    m_treeModel.addNode("Grandchild 1_2", 2, false);
+    m_treeModel.addNode("Child 2", 1, false);
+    m_treeModel.addNode("Grandchild 2_1", 2, false);
+    m_treeModel.addNode("Grandchild 2_2", 2, false);
 
     m_contentItem->setProperty("model", QVariant::fromValue(&m_treeModel));
     //qDebug() << "TreeView: Set" << nodes.size() << "nodes to model";
